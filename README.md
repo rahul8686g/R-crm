@@ -62,8 +62,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/genie-opensource/genie-crm.git
-   cd genie-crm
+   git clone https://github.com/rahul8686g/R-crm.git
+   cd R-crm
    ```
 
 2. **Configure environment** (optional)
