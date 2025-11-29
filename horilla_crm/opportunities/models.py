@@ -1,0 +1,1 @@
+from genie_crm.opportunities.models import *

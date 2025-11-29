@@ -1,0 +1,17 @@
+"""Filters for genie_dashboard app."""
+
+from genie_generics.filters import HorillaFilterSet
+
+from .models import Dashboard
+
+
+class DashboardFilter(HorillaFilterSet):
+    """Dashboard Filter"""
+
+    class Meta:
+        """Meta class for DashboardFilter"""
+
+        model = Dashboard
+        fields = "__all__"
+        exclude = ["additional_info"]
+        search_fields = ["name"]
