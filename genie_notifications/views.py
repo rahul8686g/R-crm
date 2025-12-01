@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from django.utils.decorators import method_decorator
 from django.views import View
 
-from horilla_core.decorators import htmx_required
+from genie_core.decorators import htmx_required
 
 from .models import Notification
 

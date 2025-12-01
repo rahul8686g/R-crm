@@ -20,6 +20,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
 
 from genie import settings
 from genie.exceptions import HorillaHttp404
@@ -115,9 +116,15 @@ def protected_media(request, path):
     return FileResponse(open(media_path, "rb"))
 
 
-class HomePageView(LoginRequiredMixin, View):
+class HomePageView(View):
     def get(self, request, *args, **kwargs):
-        return redirect(settings.DEFAULT_HOME_REDIRECT)
+        condition_view = InitializeDatabaseConditionView()
+        show_register = condition_view.get_initialize_condition()
+        context = {
+            "home_redirect": settings.DEFAULT_HOME_REDIRECT,
+            "show_register": show_register,
+        }
+        return render(request, "landing.html", context)
 
 
 @method_decorator(htmx_required, name="dispatch")
@@ -1086,3 +1093,29 @@ class RolesView(LoginRequiredMixin, TemplateView):
         context["roles_data"] = roles_data
         context["roles_count"] = roles.count()
         return context
+@method_decorator(csrf_exempt, name="dispatch")
+class AnalyticsTrackView(View):
+    def get(self, request, *args, **kwargs):
+        try:
+            import json
+
+            raw_meta = request.GET.get("meta")
+            meta = json.loads(raw_meta) if raw_meta else {}
+            event = request.GET.get("event")
+            logger.info("landing_analytics", extra={"event": event, "meta": meta})
+            return HttpResponse(status=204)
+        except Exception as e:
+            logger.warning(f"AnalyticsTrackView error: {e}")
+            return HttpResponse(status=400)
+    def post(self, request, *args, **kwargs):
+        try:
+            import json
+
+            payload = json.loads(request.body.decode("utf-8")) if request.body else {}
+            logger.info(
+                "landing_analytics", extra={"event": payload.get("event"), "meta": payload.get("meta", {})}
+            )
+            return HttpResponse(status=204)
+        except Exception as e:
+            logger.warning(f"AnalyticsTrackView error: {e}")
+            return HttpResponse(status=400)

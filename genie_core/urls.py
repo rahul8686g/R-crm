@@ -1,6 +1,4 @@
-from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path, re_path
-from django.views.generic.base import RedirectView
 
 from genie_core.change_password import ChangePasswordFormView, ChangePasswordView
 from genie_core.forgot_password import ForgotPasswordView, PasswordResetConfirmView
@@ -33,9 +31,7 @@ urlpatterns = [
     path("login/", views.LoginUserView.as_view(), name="login"),
     path("logout/", views.LogoutView.as_view(), name="logout"),
     path("active-tab/", views.SaveActiveTabView.as_view(), name="active_tab"),
-    path(
-        "favicon.ico", RedirectView.as_view(url=staticfiles_storage.url("favicon.ico"))
-    ),
+    path("analytics-track/", views.AnalyticsTrackView.as_view(), name="analytics_track"),
     path("settings-view/", views.SettingView.as_view(), name="settings_view"),
     path("my-settings-view/", views.MySettingView.as_view(), name="my_settings_view"),
     path(

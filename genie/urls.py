@@ -18,14 +18,13 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-from django.shortcuts import redirect
 from django.views.i18n import JavaScriptCatalog
 
 from . import settings
 from genie_core import views as core_views
 
 urlpatterns = [
-    path("", lambda request: redirect("/dashboard/", permanent=False)),
+    path("", core_views.HomePageView.as_view(), name="home"),
     path("login/", core_views.LoginUserView.as_view(), name="login"),
     path("logout/", core_views.LogoutView.as_view(), name="logout"),
     path("admin/", admin.site.urls),

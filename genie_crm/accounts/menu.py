@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from genie.menu import floating_menu, main_section_menu, sub_section_menu
-from horilla_crm.accounts.models import Account
+from genie_crm.accounts.models import Account
 
 
 @floating_menu.register

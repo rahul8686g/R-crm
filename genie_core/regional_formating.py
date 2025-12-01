@@ -12,7 +12,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
 
-from horilla_core.forms import RegionalFormattingForm
+from genie_core.forms import RegionalFormattingForm
 
 
 class ReginalFormatingView(LoginRequiredMixin, FormView):

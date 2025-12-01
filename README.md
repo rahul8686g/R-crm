@@ -5,7 +5,7 @@
   <p>A comprehensive CRM solution designed for enterprise-level customer engagement, sales tracking, and business process automation.</p>
 </div>
 
-[![License](https://img.shields.io/badge/license-LGPL-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12+-blue.svg)](https://python.org)
 [![Django](https://img.shields.io/badge/django-5.2+-green.svg)](https://djangoproject.com)
 [![Docker](https://img.shields.io/badge/docker-supported-blue.svg)](https://docker.com)
@@ -413,9 +413,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-  <p>Made with ❤️ by the Horilla team</p>
+  <p>Made with ❤️ by the Genie team</p>
   <p>
-    <a href="https://github.com/horilla-opensource/horilla-crm">GitHub</a> •
+    <a href="https://github.com/rahul8686g/R-crm">GitHub</a> •
     <a href="#documentation">Documentation</a> •
     <a href="#support">Support</a>
   </p>

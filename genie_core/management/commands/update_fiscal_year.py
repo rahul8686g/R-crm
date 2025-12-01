@@ -4,7 +4,7 @@ from dateutil.relativedelta import relativedelta
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
-from horilla_core.models import FiscalYear, FiscalYearInstance
+from genie_core.models import FiscalYear, FiscalYearInstance
 
 
 class Command(BaseCommand):

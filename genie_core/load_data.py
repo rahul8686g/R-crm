@@ -14,7 +14,7 @@ from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy as _
 from django.views import View
 
-from horilla_core.models import HorillaUser
+from genie_core.models import HorillaUser
 
 
 def set_sqlite_foreign_keys(enabled: bool):
@@ -110,7 +110,7 @@ class ConfigureDemoData(View):
     def get(self, request, *args, **kwargs):
         """Display configuration page"""
         if request.session.get("init_password") != settings.DB_INIT_PASSWORD:
-            return redirect("horilla_core:load_data")
+            return redirect("genie_core:load_data")
 
         entities = self.get_configurable_entities()
         return render(request, "load_data/configure_data.html", {"entities": entities})
@@ -119,7 +119,7 @@ class ConfigureDemoData(View):
         """Save configuration and proceed to loading"""
         if request.session.get("init_password") != settings.DB_INIT_PASSWORD:
             messages.error(request, _("Unauthorized. Please authenticate first."))
-            return redirect("horilla_core:load_data")
+            return redirect("genie_core:load_data")
 
         data_config = {}
         entities = self.get_configurable_entities()

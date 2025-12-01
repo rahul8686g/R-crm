@@ -4,7 +4,7 @@ Filters for horilla_notifications API
 
 import django_filters
 
-from horilla_notifications.models import Notification
+from genie_notifications.models import Notification
 
 
 class NotificationFilter(django_filters.FilterSet):

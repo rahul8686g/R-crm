@@ -2,7 +2,7 @@ from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 
 from genie_core.models import HorillaUser
-from horilla_keys.models import ShortcutKey
+from genie_keys.models import ShortcutKey
 
 
 # Define your horilla_dashboard signals here

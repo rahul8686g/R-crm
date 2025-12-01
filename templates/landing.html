@@ -1,0 +1,238 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Genie CRM — Intelligent, Human-Centered CRM</title>
+    <meta name="description" content="Genie CRM: human-centered, real-time CRM with multi-language, multi-currency, and audit-grade history. Fast, minimalist, and built for teams." />
+    <link rel="canonical" href="/" />
+    <meta property="og:title" content="Genie CRM" />
+    <meta property="og:description" content="Human-centered CRM with real-time updates and deep audit trails." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#e54f38" />
+
+    <style>
+      :root{--brand:#e54f38;--ink:#111827;--muted:#6b7280;--bg:#fafafa;--surface:#ffffff}
+      html{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+      body{margin:0;background:var(--bg);color:var(--ink)}
+      .wrap{max-width:1120px;margin:0 auto;padding:24px}
+      .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+      .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+      .logo{width:28px;height:28px;background:var(--brand);border-radius:6px}
+      .cta{display:flex;gap:12px}
+      .btn{appearance:none;border:0;border-radius:8px;padding:10px 16px;font-weight:600;cursor:pointer}
+      .btn-primary{background:var(--brand);color:#fff}
+      .btn-ghost{background:transparent;color:var(--brand)}
+      .hero{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;padding:40px 0}
+      .hero h1{font-size:clamp(28px,6vw,46px);line-height:1.1;margin:0 0 12px}
+      .hero p{color:var(--muted);margin:0 0 20px}
+      .hero-card{background:var(--surface);border:1px solid #eee;border-radius:12px;padding:16px}
+      .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+      .card{background:var(--surface);border:1px solid #eee;border-radius:12px;padding:16px;min-height:150px}
+      .card h3{margin:0 0 8px;font-size:18px}
+      .card p{margin:0;color:var(--muted)}
+      .interactive{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+      .pill{border:1px solid #eee;border-radius:999px;padding:6px 12px;font-size:13px;color:var(--muted);cursor:pointer}
+      .showcase{padding:40px 0}
+      .value{padding:24px;background:#fff;border:1px solid #eee;border-radius:12px}
+      .ui-preview{background:#fff;border:1px solid #eee;border-radius:12px;padding:12px}
+      .ui-toolbar{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+      .ui-dot{width:10px;height:10px;border-radius:50%;background:#e5e7eb}
+      .ui-pane{display:grid;grid-template-columns:240px 1fr;gap:12px}
+      .ui-sidebar{border:1px solid #eee;border-radius:8px;height:220px}
+      .ui-content{border:1px solid #eee;border-radius:8px;height:220px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px;grid-auto-rows:64px}
+      .ui-card{border:1px solid #ddd;border-radius:8px;min-height:64px;background:#f9fafb}
+      .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+      .metric{background:#fff;border:1px solid #eee;border-radius:10px;padding:12px}
+      .metric .num{font-weight:800;font-size:20px}
+      .tabs{display:flex;gap:8px;margin-bottom:16px}
+      .tab{border:1px solid #eee;background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}
+      .tab[aria-selected="true"]{background:var(--brand);color:#fff;border-color:var(--brand)}
+      .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+      .footer{padding:24px;color:var(--muted);text-align:center}
+      .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+      @media (max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}
+      @media (max-width:560px){.grid{grid-template-columns:1fr}.cta{flex-direction:column}}
+      @media (prefers-reduced-motion: reduce){.tab,.pill{transition:none}}
+    </style>
+    <script>
+      const queue=[];function track(event,meta){try{queue.push({event,meta,ts:Date.now()});navigator.sendBeacon('/analytics-track/',JSON.stringify({event,meta}))}catch(e){}}
+      document.addEventListener('DOMContentLoaded',()=>{
+        track('page_view',{page:'landing'});
+        document.querySelectorAll('[data-cta]').forEach(el=>el.addEventListener('click',()=>track('cta_click',{id:el.dataset.cta})));
+        document.querySelectorAll('[data-pill]').forEach(el=>el.addEventListener('click',()=>track('pill_click',{id:el.dataset.pill})));
+      });
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"SoftwareApplication",
+        "name":"Genie CRM",
+        "applicationCategory":"BusinessApplication",
+        "operatingSystem":"Web",
+        "offers":{"@type":"Offer","price":"0"},
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"24"},
+        "description":"Human-centered CRM with real-time updates, multi-language, multi-currency, and audit-grade history."
+      }
+    </script>
+  </head>
+  <body>
+    <a class="sr" href="#main">Skip to content</a>
+    <header class="wrap nav" role="navigation">
+      <div class="brand"><span class="logo" aria-hidden="true"></span><span>Genie CRM</span></div>
+      <div class="cta">
+        <button class="btn btn-ghost" data-cta="learn" onclick="location.href='/documentation/user-guide-hindi.md'">Learn</button>
+        {% if request.user.is_authenticated %}
+          <button class="btn btn-primary" data-cta="dashboard" onclick="location.href='{{ home_redirect }}'">Dashboard</button>
+        {% else %}
+          <button class="btn btn-primary" data-cta="signin" onclick="location.href='/login'">Sign In</button>
+          {% if show_register %}
+            <button class="btn btn-ghost" data-cta="register" onclick="location.href='/initialize-database'">Register</button>
+          {% endif %}
+        {% endif %}
+      </div>
+    </header>
+
+    <main id="main" class="wrap" role="main">
+      <section class="hero" aria-label="Value Proposition">
+        <div>
+          <h1>Build relationships, not pipelines.</h1>
+          <p>Human-centered CRM for retail and enterprise teams. Real-time updates, audit-grade history, multilingual workflows, and secure role-based access.</p>
+          <div class="cta">
+            {% if request.user.is_authenticated %}
+              <button class="btn btn-primary" data-cta="open-dashboard" onclick="location.href='{{ home_redirect }}'">Open Dashboard</button>
+            {% else %}
+              <button class="btn btn-primary" data-cta="get-started" onclick="location.href='/login'">Get Started</button>
+              <button class="btn btn-ghost" data-cta="view-demo" onclick="location.href='/login?next=/dashboard/?section=home'">View Demo</button>
+            {% endif %}
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Interface Preview">
+          <div class="ui-preview" role="img" aria-label="Genie CRM interface preview">
+            <div class="ui-toolbar" aria-hidden="true">
+              <div class="ui-dot"></div><div class="ui-dot"></div><div class="ui-dot"></div>
+            </div>
+            <div class="ui-pane" aria-hidden="true">
+              <div class="ui-sidebar"></div>
+              <div class="ui-content">
+                <div class="ui-card"></div><div class="ui-card"></div><div class="ui-card"></div>
+                <div class="ui-card"></div><div class="ui-card"></div><div class="ui-card"></div>
+              </div>
+            </div>
+          </div>
+          <noscript>
+            <div class="ui-preview" aria-label="Genie CRM static preview">
+              <div class="ui-pane">
+                <div class="ui-sidebar"></div>
+                <div class="ui-content">
+                  <div class="ui-card"></div><div class="ui-card"></div><div class="ui-card"></div>
+                  <div class="ui-card"></div><div class="ui-card"></div><div class="ui-card"></div>
+                </div>
+              </div>
+            </div>
+          </noscript>
+          <div class="metrics" aria-label="Performance Metrics">
+            <div class="metric" aria-label="Load Time"><div class="num" data-count="1.2">1.2s</div><div class="lab">Initial load</div></div>
+            <div class="metric" aria-label="Uptime"><div class="num" data-count="99.99">99.99%</div><div class="lab">Uptime</div></div>
+            <div class="metric" aria-label="Latency"><div class="num" data-count="120">120ms</div><div class="lab">Realtime latency</div></div>
+            <div class="metric" aria-label="Locales"><div class="num" data-count="20">20+</div><div class="lab">Languages</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase" aria-label="Feature Showcase">
+        <div class="value">
+          <div class="grid" aria-label="Core Capabilities">
+            <div class="card"><h3>Real‑time</h3><p>Live updates across devices via WebSockets.</p></div>
+            <div class="card"><h3>Global</h3><p>Multi‑language and multi‑currency built-in.</p></div>
+            <div class="card"><h3>Secure</h3><p>Role-based access; audit-grade record history.</p></div>
+          </div>
+          <div class="grid" style="margin-top:16px" aria-label="Technical & Integrations">
+            <div class="card"><h3>API</h3><p>REST endpoints for integration; JWT auth supported.</p></div>
+            <div class="card"><h3>Integrations</h3><p>Pluggable apps and modular dashboards.</p></div>
+            <div class="card"><h3>Reliability</h3><p>Optimized queries, caching, and background workers.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase" aria-label="Business Value">
+        <div class="value">
+          <div class="tabs" role="tablist" aria-label="Audience Tabs">
+            <button class="tab" role="tab" aria-selected="true" aria-controls="panel-retail" id="tab-retail">Retail</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-enterprise" id="tab-enterprise">Enterprise</button>
+          </div>
+          <div id="panel-retail" role="tabpanel" aria-labelledby="tab-retail">
+            <div class="two-col">
+              <div class="card"><h3>Inventory</h3><p>Track stock, variants, and reorder signals.</p></div>
+              <div class="card"><h3>Engagement</h3><p>Customer timelines, notes, and smart follow-ups.</p></div>
+              <div class="card"><h3>Sales Optimization</h3><p>Pipelines, forecasts, and win‑loss analytics.</p></div>
+              <div class="card"><h3>Scalability</h3><p>Grow from single store to multi‑channel.</p></div>
+            </div>
+          </div>
+          <div id="panel-enterprise" role="tabpanel" aria-labelledby="tab-enterprise" hidden>
+            <div class="two-col">
+              <div class="card"><h3>Analytics</h3><p>Custom dashboards with drill‑downs.</p></div>
+              <div class="card"><h3>Automation</h3><p>Workflows, approvals, and scheduled tasks.</p></div>
+              <div class="card"><h3>Security</h3><p>SSO, RBAC, and audit trails.</p></div>
+              <div class="card"><h3>APIs</h3><p>Integration-ready endpoints.</p></div>
+              <div class="card"><h3>Multi‑location</h3><p>Granular access across regions and teams.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase" aria-label="Role-based Access">
+        <div class="value">
+          <div class="grid">
+            <div class="card"><h3>Roles</h3><p>CEO, Sales Manager, Support Manager, Marketing Manager, Sales Representative, Sales Support.</p></div>
+            <div class="card"><h3>Admin Console</h3><p>User management, groups, and permission assignments.</p></div>
+            <div class="card"><h3>Collaboration</h3><p>Comments, mentions, and shared dashboards.</p></div>
+          </div>
+          <div class="grid" style="margin-top:16px">
+            <div class="card"><h3>Custom Roles</h3><p>Create hierarchical roles and fine‑tune permissions.</p></div>
+            <div class="card"><h3>Compliance</h3><p>Detailed record history and exports.</p></div>
+            <div class="card"><h3>Accessibility</h3><p>WCAG 2.1‑aligned components and keyboard navigation.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase" aria-label="Calls to Action">
+        <div class="cta">
+          {% if request.user.is_authenticated %}
+            <button class="btn btn-primary" data-cta="start-now" onclick="location.href='{{ home_redirect }}'">Open Dashboard</button>
+          {% else %}
+            <button class="btn btn-primary" data-cta="start-now" onclick="location.href='/login'">Start Now</button>
+            <button class="btn btn-ghost" data-cta="docs" onclick="location.href='/documentation/user-guide-hindi.md'">Documentation</button>
+          {% endif %}
+        </div>
+      </section>
+    </main>
+
+    <footer class="wrap footer" role="contentinfo">
+      <small>© Genie CRM</small>
+    </footer>
+
+    <script>
+      if ('loading' in HTMLImageElement.prototype){document.querySelectorAll('img[loading]')?.forEach(()=>{});} // lazy ready
+
+      const retailTab=document.getElementById('tab-retail');
+      const enterpriseTab=document.getElementById('tab-enterprise');
+      const retailPanel=document.getElementById('panel-retail');
+      const enterprisePanel=document.getElementById('panel-enterprise');
+      function selectTab(target){
+        const isRetail=target===retailTab;
+        retailTab.setAttribute('aria-selected',isRetail? 'true':'false');
+        enterpriseTab.setAttribute('aria-selected',isRetail? 'false':'true');
+        retailPanel.hidden=!isRetail; enterprisePanel.hidden=isRetail;
+        track('audience_tab',{tab:isRetail?'retail':'enterprise'});
+      }
+      retailTab.addEventListener('click',()=>selectTab(retailTab));
+      enterpriseTab.addEventListener('click',()=>selectTab(enterpriseTab));
+      retailTab.addEventListener('keydown',(e)=>{if(e.key==='ArrowRight'){selectTab(enterpriseTab)}});
+      enterpriseTab.addEventListener('keydown',(e)=>{if(e.key==='ArrowLeft'){selectTab(retailTab)}});
+    </script>
+  </body>
+</html>

@@ -260,8 +260,7 @@
 
             if ("Notification" in window && Notification.permission === "granted") {
             new Notification("New Notification", {
-                body: data.message,
-                icon: "/static/favicon.ico"
+                body: data.message
             });
             }
         }

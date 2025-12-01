@@ -14,7 +14,7 @@ from rest_framework.response import Response
 from genie_core.api.docs import BULK_DELETE_DOCS, BULK_UPDATE_DOCS, SEARCH_FILTER_DOCS
 from genie_core.api.mixins import BulkOperationsMixin, SearchFilterMixin
 from genie_core.api.permissions import IsCompanyMember
-from horilla_dashboard.api.docs import (
+from genie_dashboard.api.docs import (
     COMPONENT_CRITERIA_CREATE_DOCS,
     COMPONENT_CRITERIA_DETAIL_DOCS,
     COMPONENT_CRITERIA_LIST_DOCS,
@@ -28,13 +28,13 @@ from horilla_dashboard.api.docs import (
     DASHBOARD_FOLDER_LIST_DOCS,
     DASHBOARD_LIST_DOCS,
 )
-from horilla_dashboard.api.serializers import (
+from genie_dashboard.api.serializers import (
     ComponentCriteriaSerializer,
     DashboardComponentSerializer,
     DashboardFolderSerializer,
     DashboardSerializer,
 )
-from horilla_dashboard.models import (
+from genie_dashboard.models import (
     ComponentCriteria,
     Dashboard,
     DashboardComponent,

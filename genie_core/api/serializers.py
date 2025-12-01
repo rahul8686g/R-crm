@@ -3,6 +3,7 @@ Serializers for horilla_core models
 """
 
 from rest_framework import serializers
+from django_countries.serializer_fields import CountryField
 
 from genie_core.models import (
     BusinessHour,
@@ -47,6 +48,8 @@ class RoleSerializer(serializers.ModelSerializer):
 
 class HorillaUserSerializer(serializers.ModelSerializer):
     """Serializer for HorillaUser model"""
+
+    country = CountryField()
 
     class Meta:
         model = HorillaUser
